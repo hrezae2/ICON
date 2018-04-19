@@ -1,0 +1,231 @@
+	Node: 77	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:378	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:219	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:256	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:303	Flow latency(ms): 0.122	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:223	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 30	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:369	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:176	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:168	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:376	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:313	Flow latency(ms): 0.122	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:239	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:  8	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:250	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:  0	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:320	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:267	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:  8	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:109	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:208	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:223	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:246	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 32	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:289	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:299	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:111	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:242	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:360	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 84	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:  1	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 98	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:366	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:153	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:332	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:267	Flow latency(ms): 0.323	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:120	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:313	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:250	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 58	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:223	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 30	Flow latency(ms): 0.322	size(KB):   32	timeouts:        0	EcnMarked:     2	EcnCount:     2
+	Node:390	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:136	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:143	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:189	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:225	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:160	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:242	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:370	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 61	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:146	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 55	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:332	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 69	Flow latency(ms): 0.404	size(KB):   32	timeouts:        0	EcnMarked:     8	EcnCount:     8
+	Node: 39	Flow latency(ms): 0.253	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:337	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 77	Flow latency(ms): 0.321	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:189	Flow latency(ms): 0.254	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:246	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:153	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:316	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:  8	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:225	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:214	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:109	Flow latency(ms): 0.253	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 98	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:299	Flow latency(ms): 0.184	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:267	Flow latency(ms): 0.253	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:136	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 19	Flow latency(ms): 0.321	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 47	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 97	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:  0	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:245	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:256	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:109	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:303	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:265	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:267	Flow latency(ms): 0.321	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 12	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:301	Flow latency(ms): 0.122	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:312	Flow latency(ms): 0.321	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 71	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:337	Flow latency(ms): 0.197	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:316	Flow latency(ms): 0.333	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 46	Flow latency(ms): 0.152	size(KB):    8	timeouts:        0	EcnMarked:     1	EcnCount:     1
+	Node:187	Flow latency(ms): 0.253	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:215	Flow latency(ms): 0.157	size(KB):    8	timeouts:        0	EcnMarked:     1	EcnCount:     1
+	Node:299	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:372	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 13	Flow latency(ms): 0.161	size(KB):    8	timeouts:        0	EcnMarked:     2	EcnCount:     2
+	Node:188	Flow latency(ms): 0.519	size(KB):   32	timeouts:        0	EcnMarked:    21	EcnCount:    22
+	Node:314	Flow latency(ms): 0.520	size(KB):   32	timeouts:        0	EcnMarked:    20	EcnCount:    20
+	Node: 77	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 37	Flow latency(ms): 0.526	size(KB):   32	timeouts:        0	EcnMarked:    20	EcnCount:    21
+	Node:175	Flow latency(ms): 0.524	size(KB):   32	timeouts:        0	EcnMarked:    21	EcnCount:    21
+	Node:180	Flow latency(ms): 0.174	size(KB):    8	timeouts:        0	EcnMarked:     4	EcnCount:     4
+	Node:267	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:179	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:  3	Flow latency(ms): 0.531	size(KB):   32	timeouts:        0	EcnMarked:    21	EcnCount:    22
+	Node: 57	Flow latency(ms): 0.534	size(KB):   32	timeouts:        0	EcnMarked:    21	EcnCount:    23
+	Node:188	Flow latency(ms): 0.181	size(KB):    8	timeouts:        0	EcnMarked:     6	EcnCount:     6
+	Node:228	Flow latency(ms): 0.191	size(KB):    8	timeouts:        0	EcnMarked:     4	EcnCount:     4
+	Node:387	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 27	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:211	Flow latency(ms): 0.543	size(KB):   32	timeouts:        0	EcnMarked:    21	EcnCount:    24
+	Node:316	Flow latency(ms): 0.253	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:148	Flow latency(ms): 0.321	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 94	Flow latency(ms): 0.192	size(KB):    8	timeouts:        0	EcnMarked:     6	EcnCount:     6
+	Node: 73	Flow latency(ms): 0.214	size(KB):    8	timeouts:        0	EcnMarked:     6	EcnCount:     6
+	Node:204	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:199	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 77	Flow latency(ms): 0.184	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:114	Flow latency(ms): 0.218	size(KB):    8	timeouts:        0	EcnMarked:     7	EcnCount:     7
+	Node:224	Flow latency(ms): 0.219	size(KB):    8	timeouts:        0	EcnMarked:     7	EcnCount:     7
+	Node:332	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 19	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 53	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:210	Flow latency(ms): 0.234	size(KB):    8	timeouts:        0	EcnMarked:     5	EcnCount:     5
+	Node: 90	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:350	Flow latency(ms): 0.235	size(KB):    8	timeouts:        0	EcnMarked:     5	EcnCount:     5
+	Node:375	Flow latency(ms): 0.241	size(KB):    8	timeouts:        0	EcnMarked:     6	EcnCount:     6
+	Node:108	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:114	Flow latency(ms): 0.602	size(KB):   32	timeouts:        0	EcnMarked:    20	EcnCount:    20
+	Node:276	Flow latency(ms): 0.248	size(KB):    8	timeouts:        0	EcnMarked:     6	EcnCount:     6
+	Node:300	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:297	Flow latency(ms): 0.257	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:288	Flow latency(ms): 0.243	size(KB):    8	timeouts:        0	EcnMarked:     7	EcnCount:     7
+	Node:382	Flow latency(ms): 0.258	size(KB):    8	timeouts:        0	EcnMarked:     7	EcnCount:     7
+	Node:257	Flow latency(ms): 0.261	size(KB):    8	timeouts:        0	EcnMarked:     7	EcnCount:     7
+	Node:388	Flow latency(ms): 0.249	size(KB):    8	timeouts:        0	EcnMarked:     7	EcnCount:     7
+	Node:291	Flow latency(ms): 0.277	size(KB):    8	timeouts:        0	EcnMarked:     5	EcnCount:     6
+	Node:  6	Flow latency(ms): 0.274	size(KB):    8	timeouts:        0	EcnMarked:     7	EcnCount:    10
+	Node:282	Flow latency(ms): 0.271	size(KB):    8	timeouts:        0	EcnMarked:     7	EcnCount:     7
+	Node: 96	Flow latency(ms): 0.275	size(KB):    8	timeouts:        0	EcnMarked:     7	EcnCount:    10
+	Node:192	Flow latency(ms): 0.270	size(KB):    8	timeouts:        0	EcnMarked:     7	EcnCount:     8
+	Node:286	Flow latency(ms): 0.282	size(KB):    8	timeouts:        0	EcnMarked:     6	EcnCount:     9
+	Node:341	Flow latency(ms): 0.638	size(KB):   32	timeouts:        0	EcnMarked:    20	EcnCount:    24
+	Node:111	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:208	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 93	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:273	Flow latency(ms): 0.184	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:204	Flow latency(ms): 0.122	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:170	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:167	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:316	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 82	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 19	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:124	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:265	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:265	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 91	Flow latency(ms): 0.705	size(KB):   32	timeouts:        0	EcnMarked:    19	EcnCount:    26
+	Node:324	Flow latency(ms): 0.196	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:225	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:258	Flow latency(ms): 0.253	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:376	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:312	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:338	Flow latency(ms): 0.342	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:136	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:349	Flow latency(ms): 0.323	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:396	Flow latency(ms): 0.321	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:324	Flow latency(ms): 0.292	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:343	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:390	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:349	Flow latency(ms): 0.257	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:150	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:196	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:378	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 86	Flow latency(ms): 0.764	size(KB):   32	timeouts:        0	EcnMarked:    16	EcnCount:    23
+	Node:229	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:249	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 59	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:258	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:214	Flow latency(ms): 0.254	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:111	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 32	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 97	Flow latency(ms): 0.256	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:313	Flow latency(ms): 0.355	size(KB):   32	timeouts:        0	EcnMarked:     9	EcnCount:     9
+	Node:303	Flow latency(ms): 0.253	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:273	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:245	Flow latency(ms): 0.321	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:249	Flow latency(ms): 0.342	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:256	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:312	Flow latency(ms): 0.320	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:239	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:110	Flow latency(ms): 0.184	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:290	Flow latency(ms): 0.255	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:  0	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:303	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:398	Flow latency(ms): 0.184	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:301	Flow latency(ms): 0.322	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 65	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:245	Flow latency(ms): 0.323	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:232	Flow latency(ms): 0.375	size(KB):   32	timeouts:        0	EcnMarked:    16	EcnCount:    16
+	Node:245	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:354	Flow latency(ms): 0.276	size(KB):   16	timeouts:        0	EcnMarked:     2	EcnCount:     2
+	Node: 61	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:225	Flow latency(ms): 0.318	size(KB):   16	timeouts:        0	EcnMarked:    11	EcnCount:    11
+	Node:350	Flow latency(ms): 0.945	size(KB):   32	timeouts:        0	EcnMarked:    15	EcnCount:    16
+	Node:288	Flow latency(ms): 0.955	size(KB):   32	timeouts:        0	EcnMarked:    15	EcnCount:    23
+	Node: 66	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:154	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:250	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:190	Flow latency(ms): 0.321	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:308	Flow latency(ms): 0.972	size(KB):   32	timeouts:        0	EcnMarked:    15	EcnCount:    23
+	Node:336	Flow latency(ms): 0.196	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:249	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:306	Flow latency(ms): 0.977	size(KB):   32	timeouts:        0	EcnMarked:    15	EcnCount:    22
+	Node:219	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:232	Flow latency(ms): 0.195	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 27	Flow latency(ms): 0.190	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:336	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:398	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 31	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:315	Flow latency(ms): 0.122	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:272	Flow latency(ms): 0.184	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:338	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:369	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:221	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:315	Flow latency(ms): 0.354	size(KB):   32	timeouts:        0	EcnMarked:     8	EcnCount:     8
+	Node:245	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:366	Flow latency(ms): 0.195	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 53	Flow latency(ms): 0.191	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 22	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:153	Flow latency(ms): 0.319	size(KB):   32	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:398	Flow latency(ms): 0.292	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:332	Flow latency(ms): 0.266	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node: 77	Flow latency(ms): 0.183	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:202	Flow latency(ms): 0.184	size(KB):    8	timeouts:        0	EcnMarked:     0	EcnCount:     0
+	Node:176	Flow latency(ms): 0.252	size(KB):   16	timeouts:        0	EcnMarked:     0	EcnCount:     0

@@ -1,0 +1,8 @@
+#! /usr/bin/env python
+
+# Programs that are runnable.
+ns3_runnable_programs = ['scratch/ns3-dev-mqq-incast-optimized', 'scratch/ns3-dev-priority-datacenter-optimized', 'scratch/ns3-dev-mqq-incast-jitter-optimized', 'scratch/ns3-dev-multi-queue-optimized', 'scratch/ns3-dev-dropper-optimized', 'scratch/ns3-dev-dctcp_test-optimized', 'scratch/ns3-dev-oldi_sim-optimized', 'scratch/ns3-dev-fat-Agg-link-optimized', 'scratch/ns3-dev-mqq-sharedbuffer-incast-optimized', 'scratch/ns3-dev-priority-mix-optimized', 'scratch/ns3-dev-mqq-priority-incast-optimized', 'scratch/ns3-dev-datacenter-optimized', 'scratch/ns3-dev-mqq-priority-jitter-incast-optimized', 'scratch/ns3-dev-ICON-optimized', 'scratch/ns3-dev-mqq-rate-incast-optimized', 'scratch/ns3-dev-multi-nic-optimized', 'scratch/ns3-dev-incast-optimized', 'scratch/ns3-dev-mqq-datacenter-optimized', 'scratch/ns3-dev-mix-optimized', 'scratch/ns3-dev-mqq-incast-jitter-dropper-optimized', 'scratch/ns3-dev-fattree_incast-optimized', 'scratch/ns3-dev-shared-queue-optimized', 'scratch/ns3-dev-scratch-simulator-optimized', 'scratch/ns3-dev-jitter_incast-optimized', 'scratch/ns3-dev-base-optimized', 'scratch/ns3-dev-priority-incast-optimized', 'scratch/ns3-dev-fattree_jitter_incast-optimized', 'scratch/ns3-dev-qbb_test-optimized', 'scratch/ns3-dev-mqq-incast-jitter-app-optimized', 'scratch/ns3-dev-pFabric_sim-optimized', 'scratch/subdir/ns3-dev-subdir-optimized', 'scratch/ns3-dev-old_incast-optimized', 'scratch/ns3-dev-rate-limiter-optimized', 'scratch/ns3-dev-utilization-optimized', 'scratch/ns3-dev-queuelength-optimized', 'scratch/ns3-dev-new-mqq-incast-jitter-app-optimized', 'scratch/ns3-dev-sharedbuffer-incast-optimized']
+
+# Scripts that are runnable.
+ns3_runnable_scripts = []
+
