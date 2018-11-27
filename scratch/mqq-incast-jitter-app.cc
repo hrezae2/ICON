@@ -31,10 +31,10 @@ uint32_t 	initCwnd 		  = 10;         // TCP Initial Congestion Window
 double 		minRto 			  = 10000e-6; 
 uint32_t 	segmentSize 		  = 1460;
 bool            LinkUtilization           = 0;
-string          StatsFileName             = "dummy.txt";
+string          StatsFileName             = "128Dummy.txt";
 double          interval                  = 0.010;
 
-uint32_t	incastDegree		  = 24;
+uint32_t	incastDegree		  = 32;
 double		incastFactor		  = 0.5;
 
 double          longLoadFactor	          = 0.8;
@@ -45,7 +45,7 @@ uint32_t        FlowSizeLong              = 1024 * 1024;
 
 bool 		pktspray 		  = 0;
 bool		dctcp			  = 1; 
-double 		testruntime		  = 0.25;
+double 		testruntime		  = 0.125;
 // Derived Parameters
 uint32_t	LongRequestsPerNode;
 uint32_t	ShortRequestsPerNode;
@@ -83,35 +83,7 @@ void QueuedPackets(uint32_t oldValue, uint32_t newValue)
 
 }
 
-uint32_t
-RandomIncastDegree ()
-{
-  double min = 1.0;
-  double max = 5.0;
-  Ptr<UniformRandomVariable> UniformlyRandomly = CreateObject<UniformRandomVariable> ();
-  UniformlyRandomly->SetAttribute ("Min", DoubleValue (min));
-  UniformlyRandomly->SetAttribute ("Max", DoubleValue (max));
-  double value = UniformlyRandomly->GetValue ();
-  return value;
-}
 
-void
-randomShort (void)
-{
-
-  Ptr<UniformRandomVariable> UniformlyRandomly = CreateObject<UniformRandomVariable> ();
-  UniformlyRandomly->SetAttribute ("Min", DoubleValue (1));
-  UniformlyRandomly->SetAttribute ("Max", DoubleValue (99));
-  if (UniformlyRandomly->GetValue () < 34){
-        FlowSizeShort = 8 * 1024;
-                                          }
-  else if  (33 < UniformlyRandomly->GetValue () && UniformlyRandomly->GetValue () < 67) {
-        FlowSizeShort = 16 * 1024;
-                                                        }
-  else {
-        FlowSizeShort = 32 * 1024;
-        }
-}
 
 void
 QueueStat ()
@@ -295,16 +267,6 @@ void Build_Topology()
               n2, *v2,
               n3, *v3);
 
-  // remove tagging for leaf switches
-  PointToPointHelper l2l;
-  l2l.SetDeviceAttribute        ("DataRate",  StringValue (LinkSpeed));
-  l2l.SetChannelAttribute       ("Delay",     StringValue (LinkDelay));
-  l2l.SetQueue  ("ns3::DropTailQueue",
-              n1, *v1,
-              n2, *v2);
-             // n3, *v3);
-
-
   Ipv4AddressHelper ipv4;
   ipv4.SetBase ("10.0.0.0", "255.255.255.0");
   NetDeviceContainer devices;
@@ -315,15 +277,6 @@ void Build_Topology()
     interfaces = ipv4.Assign(devices);
     ipv4.NewNetwork();
   }
-  //remove tagging for leaf switches
-  for (uint32_t i=0;i<NumberofRacks;i++){
-    for (uint32_t j=0;j<NumberofSpineSwitches;j++){
-        devices = p2p.Install(nLeaf[i],nSpine[j]);
-       // interfaces = ipv4.Assign(devices);
-        //ipv4.NewNetwork();
-    }
-  }
-
   for (uint32_t i=0;i<NumberofSpineSwitches;i++){
     for (uint32_t j=0;j<NumberofRacks;j++){
 	devices = p2p.Install(nSpine[i],nLeaf[j]);
@@ -337,11 +290,10 @@ void Build_Topology()
 
 }
 
-void SetupServerTraffic (Ptr<Node> Nd, uint16_t appPort, Time startTime, uint8_t priority,  bool IncastAgg) 
+void SetupServerTraffic (Ptr<Node> Nd, uint16_t appPort, Time startTime, uint8_t priority) 
 {
   PacketSinkHelper sink ("ns3::TcpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), appPort));
   sink.SetAttribute ("Priority", UintegerValue (priority));
-  sink.SetAttribute ("CalculateIncast", BooleanValue(IncastAgg));
   ApplicationContainer sinkApps = sink.Install (Nd);
   sinkApps.Start(startTime);
 }
@@ -394,12 +346,22 @@ void SetupIncastServer(Ptr<Node> rnode)
 
 double  AppDelay(){
 
-  Ptr<ExponentialRandomVariable> ApplicationDelay = CreateObject<ExponentialRandomVariable> ();
-  ApplicationDelay->SetAttribute ("Mean", DoubleValue (10));
-  ApplicationDelay->SetAttribute ("Bound", DoubleValue (120));
-  double  delay = ApplicationDelay->GetValue();
+  Ptr<UniformRandomVariable> ApplicationDelay = CreateObject<UniformRandomVariable> ();
+  ApplicationDelay->SetAttribute ("Min", DoubleValue (1));
+  ApplicationDelay->SetAttribute ("Max", DoubleValue (100));
+  double  delay;
+  uint8_t chance = ApplicationDelay->GetInteger(1,100);
+  if (chance < 80)
+  {
+        delay =  0.00;
+  }
+  else
+  {
+        delay = 0.000082;
+  }
   return delay;
 }
+
 
 void Setup_Workload(){
   vector <uint32_t> AppIdxLong;
@@ -492,7 +454,6 @@ void Setup_Workload(){
   for (uint32_t k=0;k < ShortRequestsPerNode; k++){
   	random_shuffle(AppIdxShort.begin(),AppIdxShort.end());
   	for (uint32_t i=0;i<AppIdxShort.size(); i=i+2){
-		randomShort();
       		ServerNodeIdx = AppIdxShort[i];
       		ClientNodeIdx = AppIdxShort[i+1];
       		do {
@@ -501,12 +462,12 @@ void Setup_Workload(){
         	Map_Port[ServerNodeIdx].push_back(appPort);
       		Time Curr_Start = Prev_Start[ClientNodeIdx] + Seconds (DelayRandomlyShort->GetValue());
       		Prev_Start[ClientNodeIdx] = Curr_Start;
-      		SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start,0, false);
+      		SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start,0);
       		SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start,0, false);
 		NumShortFlows++;
                 Curr_Start = Prev_Start[ServerNodeIdx] + Seconds (DelayRandomlyShort->GetValue());
                 Prev_Start[ServerNodeIdx] = Curr_Start;
-                SetupServerTraffic(nEnd[ClientNodeIdx],appPort,Curr_Start,0, false);
+                SetupServerTraffic(nEnd[ClientNodeIdx],appPort,Curr_Start,0);
                 SetupClientTraffic(nEnd[ServerNodeIdx],nEnd[ClientNodeIdx],FlowSizeShort,appPort,Curr_Start,0, false);
 		NumShortFlows++;
 	}
@@ -525,12 +486,12 @@ void Setup_Workload(){
                 Map_Port[ServerNodeIdx].push_back(appPort);
                 Time Curr_Start = Prev_Start[ClientNodeIdx] + Seconds (DelayRandomlyLong->GetValue());
                 Prev_Start[ClientNodeIdx] = Curr_Start;
-                SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start,0, false);
+                SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start,0);
                 SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeLong,appPort,Curr_Start,0, false);
 		NumLongFlows++;
                 Curr_Start = Prev_Start[ServerNodeIdx] + Seconds (DelayRandomlyLong->GetValue());
                 Prev_Start[ServerNodeIdx] = Curr_Start;
-                SetupServerTraffic(nEnd[ClientNodeIdx],appPort,Curr_Start,0, false);
+                SetupServerTraffic(nEnd[ClientNodeIdx],appPort,Curr_Start,0);
                 SetupClientTraffic(nEnd[ServerNodeIdx],nEnd[ClientNodeIdx],FlowSizeLong,appPort,Curr_Start,0, false);
 		NumLongFlows++;
         }
@@ -557,6 +518,7 @@ void Setup_Workload(){
   
 
  for(uint32_t i=0; i <IncastAggregators.size();i++){
+
   	random_shuffle(IncastSenders.begin(),IncastSenders.end());
 	for(uint32_t j=0;j<incastDegree;j++)
 	{
@@ -569,37 +531,21 @@ void Setup_Workload(){
 
 
   for (uint32_t k=0;k < IncastRequestsPerNode; k++){
-        if (RandomIncastDegree() == 1){
-        incastDegree = 8;
-             }
-        else if  (RandomIncastDegree() == 2) {
-        incastDegree = 16;
-             }
-        else if  (RandomIncastDegree() == 3) {
-        incastDegree = 24;
-             }
-        else if  (RandomIncastDegree() == 4) {
-        incastDegree = 32;
-             }
-        else {
-        incastDegree = 40;
-             }
         for (uint32_t i=0;i<IncastAggregators.size(); i++){
                 ServerNodeIdx = IncastAggregators[i];
-		randomShort();
                 do {
                 	appPort = UniformlyRandomly->GetInteger(0,65535);
                    } while (find(Map_Port[ServerNodeIdx].begin(),Map_Port[ServerNodeIdx].end(),appPort) != Map_Port[ServerNodeIdx].end());
                 Map_Port[ServerNodeIdx].push_back(appPort);
                 Time Curr_Start = Prev_Start[ServerNodeIdx] + Seconds (DelayRandomlyIncast->GetValue());
                 Prev_Start[ServerNodeIdx] = Curr_Start;
-                SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start,0,true);
+                SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start,0);
 		vector<uint32_t> ClientIdx = Map_Client[ServerNodeIdx];
 		for(uint32_t j=0;j<ClientIdx.size();j++)
 		{
                 	
 			ClientNodeIdx = ClientIdx[j];
-			SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start+Seconds (AppDelay()/1000000),1, true);
+			SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start+Seconds (AppDelay()),1, true);
 		}
         	NumIncastFlows++;
 	}
@@ -608,36 +554,6 @@ void Setup_Workload(){
         cout<<"Incast flows Schedueled: " << NumIncastFlows<<endl;
 
 }
-
-void GetQueue(Ptr<SimpleRedEcnQueue> q)
-{
-for (uint32_t i=0;i<NumberofRacks;i++)
-  {      
-         Ptr<Node> rnode  = nLeaf[i];
-         Ptr<Ipv4L3Protocol> rnodeip = rnode->GetObject<Ipv4L3Protocol>();
-  
-  for(uint32_t j = 0; j < rnodeip->GetNInterfaces(); j++) {
-    Ptr<NetDevice> netdev = rnodeip->GetNetDevice(j);
-    Ptr<PointToPointNetDevice> ptpnetdev = netdev->GetObject<PointToPointNetDevice>();
-    if(!ptpnetdev) {
-      continue;
-    }
-    
-    Ptr<Queue> queue = ptpnetdev->GetQueue();
-    Ptr<SimpleRedEcnQueue> dtqueue = queue->GetObject<SimpleRedEcnQueue>();
-        if (i == 12){ 
-                if (j == 3 ){
-//        if(dtqueue->Getqueuesize()!=0){
-            std::cout<<dtqueue->m_bytesInQueue<< "\t" << Simulator::Now ().GetMilliSeconds() <<"\n";
-        }
-      }
-    }
-  
-  }
-  Simulator::Schedule(Seconds(0.000001),&GetQueue,q);
-
-}
-
 
 void SetupServer(Ptr<Node> rnode) 
 {
@@ -664,7 +580,6 @@ void SetupServer(Ptr<Node> rnode)
     	set_successful &= dtqueue->SetAttributeFailSafe("Mode",      EnumValue(DropTailQueue::QUEUE_MODE_BYTES));
     	set_successful &= dtqueue->SetAttributeFailSafe("MaxBytes",  UintegerValue(4 * 1024 * 1024)); //4 MB typical to accomodate 
 	set_successful &= dtqueue->SetAttributeFailSafe("Th",      UintegerValue(4 * 1024 * 1024));
-	Simulator::Schedule(Seconds(0.000001),&GetQueue,dtqueue);
     }	
   }
   

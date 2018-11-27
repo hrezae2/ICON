@@ -21,8 +21,6 @@
 #include "ns3/uinteger.h"
 #include "priority-tag.h"
 #include "simple-priority-ecn-queue.h"
-//#include "ns3/random-variable-stream.h"
-
 
 NS_LOG_COMPONENT_DEFINE ("SimplePriorityEcnQueue");
 
@@ -94,7 +92,7 @@ bool
 SimplePriorityEcnQueue::DoEnqueue (Ptr<Packet> p)
 {
   NS_LOG_FUNCTION (this << p << "bytes: " << m_bytesInQueue + p->GetSize ());
-//	std::cout <<  " ============================ " << p->GetSize() << '\n';
+
   int priority = CheckPriority(p);
   if(priority == 1)
    {
@@ -179,17 +177,6 @@ SimplePriorityEcnQueue::CheckPriority (Ptr<Packet> p)
           i.Next (1); // Move to TOS byte
           uint8_t tos = i.ReadU8 ();
           uint8_t ecn = tos & 0x3;
-/*
-  if(pTag == 2){
-          Ptr<UniformRandomVariable> x = CreateObject<UniformRandomVariable> ();
-          x->SetAttribute ("Min", DoubleValue (0));
-          x->SetAttribute ("Max", DoubleValue (2));
-          double value = x->GetValue ();
-          if (value > 1 )
-                  return 0;
-  }
-*/
-
           if(ecn == 3 && pTag == 2)
            {
                 return 1;
@@ -310,7 +297,6 @@ SimplePriorityEcnQueue::DoPeek (void) const
     }
 
 }
-
 int
 SimplePriorityEcnQueue::Getqueuesize(){
 return m_bytesInQueue;

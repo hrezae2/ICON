@@ -24,8 +24,8 @@ uint32_t        NumberofRacks             = 20;
 uint32_t        NumberofSpineSwitches     = 10;
 uint32_t        Scale                     = 1;
 double          load                      = 0.6;
-uint32_t 	threshold 		  = 22.5e3;
-uint32_t 	queueBytes 		  = 225e3;      // Number of bytes per queue port
+uint32_t 	threshold 		  = 1e6;
+uint32_t 	queueBytes 		  = 4e6;      // Number of bytes per queue port
 uint32_t 	initCwnd 		  = 10;         // TCP Initial Congestion Window
 double 		minRto 			  = 10000e-6; 
 uint32_t 	segmentSize 		  = 1460;
@@ -82,34 +82,6 @@ void QueuedPackets(uint32_t oldValue, uint32_t newValue)
   NS_LOG_INFO ("Packets in Queue at " << Simulator::Now ().GetSeconds ()<<"are \t"<<newValue);
 
 }
-
-
-/*
-void
-RandomIncastDegree (void)
-{
-
-  Ptr<UniformRandomVariable> UniformlyRandomly = CreateObject<UniformRandomVariable> ();
-  UniformlyRandomly->SetAttribute ("Min", DoubleValue (1));
-  UniformlyRandomly->SetAttribute ("Max", DoubleValue (5));
-  if (UniformlyRandomly->GetValue () == 1){
-        incastDegree = 8;
-             }
-  else if  (UniformlyRandomly->GetValue () == 2) {
-        incastDegree = 16;
-             }
-  else if  (UniformlyRandomly->GetValue () == 3) {
-        incastDegree = 24;
-             }
-  else if  (UniformlyRandomly->GetValue () == 4) {
-        incastDegree = 32;
-             }
-  else {
-        incastDegree = 40;
-             }
-}
-
-*/
 
 void
 QueueStat ()
@@ -302,11 +274,10 @@ void Build_Topology()
 
 }
 
-void SetupServerTraffic (Ptr<Node> Nd, uint16_t appPort, Time startTime, uint8_t priority, bool IncastAgg) 
+void SetupServerTraffic (Ptr<Node> Nd, uint16_t appPort, Time startTime, uint8_t priority) 
 {
   PacketSinkHelper sink ("ns3::TcpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), appPort));
   sink.SetAttribute ("Priority", UintegerValue (priority));
-  sink.SetAttribute ("CalculateIncast", BooleanValue(IncastAgg)); 
   ApplicationContainer sinkApps = sink.Install (Nd);
   sinkApps.Start(startTime);
 }
@@ -417,13 +388,13 @@ void Setup_Workload(){
         	Map_Port[ServerNodeIdx].push_back(appPort);
       		Time Curr_Start = Prev_Start[ClientNodeIdx] + Seconds (DelayRandomlyShort->GetValue());
       		Prev_Start[ClientNodeIdx] = Curr_Start;
-      		SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start, 1, 1);
-      		SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start, 1);
+      		SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start, 3);
+      		SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start, 2);
 		NumShortFlows++;
                 Curr_Start = Prev_Start[ServerNodeIdx] + Seconds (DelayRandomlyShort->GetValue());
                 Prev_Start[ServerNodeIdx] = Curr_Start;
-                SetupServerTraffic(nEnd[ClientNodeIdx],appPort,Curr_Start, 1, 1);
-                SetupClientTraffic(nEnd[ServerNodeIdx],nEnd[ClientNodeIdx],FlowSizeShort,appPort,Curr_Start, 1);
+                SetupServerTraffic(nEnd[ClientNodeIdx],appPort,Curr_Start, 3);
+                SetupClientTraffic(nEnd[ServerNodeIdx],nEnd[ClientNodeIdx],FlowSizeShort,appPort,Curr_Start, 2);
 		NumShortFlows++;
 	}
   }
@@ -441,12 +412,12 @@ void Setup_Workload(){
                 Map_Port[ServerNodeIdx].push_back(appPort);
                 Time Curr_Start = Prev_Start[ClientNodeIdx] + Seconds (DelayRandomlyLong->GetValue());
                 Prev_Start[ClientNodeIdx] = Curr_Start;
-                SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start, 1,1);
+                SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start, 3);
                 SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeLong,appPort,Curr_Start, 1);
 		NumLongFlows++;
                 Curr_Start = Prev_Start[ServerNodeIdx] + Seconds (DelayRandomlyLong->GetValue());
                 Prev_Start[ServerNodeIdx] = Curr_Start;
-                SetupServerTraffic(nEnd[ClientNodeIdx],appPort,Curr_Start, 1,1);
+                SetupServerTraffic(nEnd[ClientNodeIdx],appPort,Curr_Start, 3);
                 SetupClientTraffic(nEnd[ServerNodeIdx],nEnd[ClientNodeIdx],FlowSizeLong,appPort,Curr_Start, 1);
 		NumLongFlows++;
         }
@@ -470,7 +441,6 @@ void Setup_Workload(){
   
 
  for(uint32_t i=0; i <IncastAggregators.size();i++){
-	//RandomIncastDegree();
   	random_shuffle(IncastSenders.begin(),IncastSenders.end());
 	for(uint32_t j=0;j<incastDegree;j++)
 	{
@@ -479,7 +449,7 @@ void Setup_Workload(){
 	}
 
 
-	}
+}
 
 
   for (uint32_t k=0;k < IncastRequestsPerNode; k++){
@@ -491,13 +461,13 @@ void Setup_Workload(){
                 Map_Port[ServerNodeIdx].push_back(appPort);
                 Time Curr_Start = Prev_Start[ServerNodeIdx] + Seconds (DelayRandomlyIncast->GetValue());
                 Prev_Start[ServerNodeIdx] = Curr_Start;
-                SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start,1, 1);
+                SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start,3);
 		vector<uint32_t> ClientIdx = Map_Client[ServerNodeIdx];
 		for(uint32_t j=0;j<ClientIdx.size();j++)
 		{
                 	
 			ClientNodeIdx = ClientIdx[j];
-			SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start,1);
+			SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start,2);
 		}
         	NumIncastFlows++;
 	}
@@ -505,39 +475,6 @@ void Setup_Workload(){
 
   cout<<"Incast flows Schedueled: " << NumIncastFlows<<endl;
 }
-
-
-void GetQueue(Ptr<SimplePriorityEcnQueue> q)
-{
-for (uint32_t i=0;i<NumberofRacks;i++)
-  {
-         Ptr<Node> rnode  = nLeaf[i];
-         Ptr<Ipv4L3Protocol> rnodeip = rnode->GetObject<Ipv4L3Protocol>();
-
-  for(uint32_t j = 0; j < rnodeip->GetNInterfaces(); j++) {
-    Ptr<NetDevice> netdev = rnodeip->GetNetDevice(j);
-    Ptr<PointToPointNetDevice> ptpnetdev = netdev->GetObject<PointToPointNetDevice>();
-    if(!ptpnetdev) {
-      continue;
-    }
-
-    Ptr<Queue> queue = ptpnetdev->GetQueue();
-    Ptr<SimplePriorityEcnQueue> dtqueue = queue->GetObject<SimplePriorityEcnQueue>();
-        if (i == 12){
-		if (j == 3 ){
-//        if(dtqueue->Getqueuesize()!=0){
-//            std::cout<<j<<"\t "<<dtqueue->m_bytesInQueue<< "\t" << Simulator::Now ().GetMilliSeconds() <<"\n";
-        }
-//	}
-      }
-    }
-
-  }
-  Simulator::Schedule(Seconds(0.000001),&GetQueue,q);
-
-}
-
-
 
 void SetupServer(Ptr<Node> rnode) 
 {
@@ -564,15 +501,11 @@ void SetupServer(Ptr<Node> rnode)
     	set_successful &= dtqueue->SetAttributeFailSafe("Mode",      EnumValue(DropTailQueue::QUEUE_MODE_BYTES));
     	set_successful &= dtqueue->SetAttributeFailSafe("MaxBytes",  UintegerValue(4 * 1024 * 1024)); //4 MB typical to accomodate 
 	set_successful &= dtqueue->SetAttributeFailSafe("Th",      UintegerValue(4 * 1024 * 1024));
-Simulator::Schedule(Seconds(0.000001),&GetQueue,dtqueue);
     }	
   }
   
   NS_ASSERT(set_successful);
 }
-
-
-
 
 void Setup_Servers()
 {

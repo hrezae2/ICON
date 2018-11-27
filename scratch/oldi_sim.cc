@@ -123,7 +123,7 @@ int main (int argc, char *argv[])
 	bool dryrun=0;			// Fake the simulation or not
         bool pktspray = 0;              // Enable per-packet randomized routing
         bool star = 0;                  // Use a star topology
-        bool dctcp = 1;                 // Use TCP or DCTCP
+        bool dctcp = 0;                 // Use TCP or DCTCP
         bool d2tcp = 0;                 // Use D2TCP
         bool red = 0;
         bool pFabric = 0;

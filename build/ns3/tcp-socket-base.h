@@ -126,7 +126,7 @@ protected:
   virtual Time     GetPersistTimeout (void) const;
   virtual bool     SetAllowBroadcast (bool allowBroadcast);
   virtual bool     GetAllowBroadcast (void) const;
-
+  bool              FCTFlag;
   // Helper functions: Connection set up
   int SetupCallback (void);        // Common part of the two Bind(), i.e. set callback and remembering local addr:port
   int DoConnect (void);            // Sending a SYN packet to make a connection if the state allows
@@ -147,7 +147,6 @@ uint32_t GetTupleValue (Ipv4Address saddr, Ipv4Address daddr,uint16_t port, TcpH
   void DeviceUnblocked(Ptr<NetDevice> nd, uint32_t avail); // To be called by the QbbNetDevice upon tx buffer available again
   void CancelNetDeviceCallback(Ptr<NetDevice> qbb);
   bool IsBlocked(void);
- // bool m_ecnmarked;
   bool SendPendingData (bool withAck = false); // Send as much as the window allows
   uint32_t SendDataPacket (SequenceNumber32 seq, uint32_t maxSize, bool withAck); // Send a data packet
   void SendEmptyPacket (uint8_t flags , uint8_t ecncount); // Send a empty packet that carries a flag, e.g. ACK
@@ -188,7 +187,6 @@ uint32_t GetTupleValue (Ipv4Address saddr, Ipv4Address daddr,uint16_t port, TcpH
   Time flowendtime;
   uint32_t flowbytes;
   uint32_t timeouts;
-  double gap;
 
 
   // Manage data tx/rx
@@ -226,7 +224,6 @@ protected:
   Time              m_persistTimeout;  //< Time between sending 1-byte probes
   Time              m_cnTimeout;       //< Timeout for connection retry
   double            m_priority;        //< Priority of the socket
-  uint32_t          m_Rdegree;
   bool 		    m_incastserver;
   double	    m_seqnum;
   double	    m_windownum;
@@ -235,8 +232,6 @@ protected:
   bool              m_blocked;         // If the socket is currently blocked
   uint64_t          m_ackdBytes;       // The number of ackd bytes
   std::string m_filename;
-  //uint32_t newvalue;
- // uint32_t oldvalue;
 
   // Connections to other layers of TCP/IP
   Ipv4EndPoint*       m_endPoint;

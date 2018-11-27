@@ -1,27 +1,27 @@
-# project ns (3-dev) configured on Wed Apr 18 13:21:45 2018 by
+# project ns (3-dev) configured on Thu Sep 13 20:27:40 2018 by
 # waf 1.6.11 (abi 98, python 2070cf0 on linux2)
 # using ./waf -d optimized configure
 #
 ----------------------------------------
 Setting top to
-/external/sdb/home/hrezae2/ICON/ICON/Research-project
+/home/hrezae2/comsnets2019/ourpacing/pacer
 ----------------------------------------
 Setting out to
-/external/sdb/home/hrezae2/ICON/ICON/Research-project/build
+/home/hrezae2/comsnets2019/ourpacing/pacer/build
 ----------------------------------------
 Checking for 'gcc' (c compiler)
-find program=['gcc', 'cc'] paths=['/external/sdb/home/hrezae2/bin', '/external/sdb/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/usr/lib/jvm/java-8-oracle/bin', '/usr/lib/jvm/java-8-oracle/db/bin', '/usr/lib/jvm/java-8-oracle/jre/bin'] var='CC' -> '/usr/bin/gcc'
-find program=['ar'] paths=['/external/sdb/home/hrezae2/bin', '/external/sdb/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/usr/lib/jvm/java-8-oracle/bin', '/usr/lib/jvm/java-8-oracle/db/bin', '/usr/lib/jvm/java-8-oracle/jre/bin'] var='AR' -> '/usr/bin/ar'
+find program=['gcc', 'cc'] paths=['/home/hrezae2/bin', '/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='CC' -> '/usr/bin/gcc'
+find program=['ar'] paths=['/home/hrezae2/bin', '/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='AR' -> '/usr/bin/ar'
 /usr/bin/gcc
 ----------------------------------------
 Checking for 'g++' (c++ compiler)
-find program=['g++', 'c++'] paths=['/external/sdb/home/hrezae2/bin', '/external/sdb/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/usr/lib/jvm/java-8-oracle/bin', '/usr/lib/jvm/java-8-oracle/db/bin', '/usr/lib/jvm/java-8-oracle/jre/bin'] var='CXX' -> '/usr/bin/g++'
+find program=['g++', 'c++'] paths=['/home/hrezae2/bin', '/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='CXX' -> '/usr/bin/g++'
 (tool ar is already loaded, skipping)
 /usr/bin/g++
 ----------------------------------------
 Checking for program pkg-config
 /usr/bin/pkg-config
-find program=['pkg-config'] paths=['/external/sdb/home/hrezae2/bin', '/external/sdb/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/usr/lib/jvm/java-8-oracle/bin', '/usr/lib/jvm/java-8-oracle/db/bin', '/usr/lib/jvm/java-8-oracle/jre/bin'] var='PKG_CONFIG' -> '/usr/bin/pkg-config'
+find program=['pkg-config'] paths=['/home/hrezae2/bin', '/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='PKG_CONFIG' -> '/usr/bin/pkg-config'
 ------------------------------------------------------
 Checking for compilation flag -march=native... support
 ==>
@@ -34,7 +34,7 @@ int main() { return 0; }
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '../test.cc', '-c', '-o', 'test.cc.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/test.cc.1.o -> build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cc.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cc.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 ok
 ---------------------------------------------------------
 Checking for compilation flag -Wl,--soname=foo... support
@@ -48,12 +48,12 @@ int main() { return 0; }
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-Wl,--soname=foo', '../test.cc', '-c', '-o', 'test.cc.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/test.cc.1.o -> build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cc.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cc.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 ok
 ---------------------------------------------------------
 Checking for program python
 /usr/bin/python
-find program=['python'] paths=['/external/sdb/home/hrezae2/bin', '/external/sdb/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/usr/lib/jvm/java-8-oracle/bin', '/usr/lib/jvm/java-8-oracle/db/bin', '/usr/lib/jvm/java-8-oracle/jre/bin'] var='PYTHON' -> '/usr/bin/python'
+find program=['python'] paths=['/home/hrezae2/bin', '/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='PYTHON' -> '/usr/bin/python'
 ['/usr/bin/python', '-c', 'import sys\nfor x in sys.version_info: print(str(x))']
 out: 2
 7
@@ -103,12 +103,12 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-fno-strict-aliasing', '-fwrapv', '-fstack-protector-strong', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DNDEBUG', '-D_FORTIFY_SOURCE=2', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_9a1d0551212c9d703363e62dfbc51c79/testbuild/test.cpp.1.o -> build/.conf_check_9a1d0551212c9d703363e62dfbc51c79/testbuild/testprog
 [0m
-['/usr/bin/g++', '-Wl,-Bsymbolic-functions', '-Wl,-z,relro', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_9a1d0551212c9d703363e62dfbc51c79/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-L/usr/lib', '-lpython2.7']
+['/usr/bin/g++', '-Wl,-Bsymbolic-functions', '-Wl,-z,relro', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_9a1d0551212c9d703363e62dfbc51c79/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-L/usr/lib', '-lpython2.7']
 yes
 -------------------------------------------------------------------------
 Checking for program python2.7-config,python-config-2.7,python2.7m-config
 /usr/bin/python2.7-config
-find program=['python2.7-config', 'python-config-2.7', 'python2.7m-config'] paths=['/external/sdb/home/hrezae2/bin', '/external/sdb/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/usr/lib/jvm/java-8-oracle/bin', '/usr/lib/jvm/java-8-oracle/db/bin', '/usr/lib/jvm/java-8-oracle/jre/bin'] var='PYTHON_CONFIG' -> '/usr/bin/python2.7-config'
+find program=['python2.7-config', 'python-config-2.7', 'python2.7m-config'] paths=['/home/hrezae2/bin', '/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='PYTHON_CONFIG' -> '/usr/bin/python2.7-config'
 ['/usr/bin/python2.7-config', '--includes']
 out: -I/usr/include/python2.7 -I/usr/include/x86_64-linux-gnu/python2.7
 
@@ -140,7 +140,7 @@ int main()
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-fno-strict-aliasing', '-fwrapv', '-fstack-protector-strong', '-fno-strict-aliasing', '-I/usr/include/python2.7', '-I/usr/include/x86_64-linux-gnu/python2.7', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DNDEBUG', '-D_FORTIFY_SOURCE=2', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_d6c8946949ece91ce43c989711393fec/testbuild/test.cpp.1.o -> build/.conf_check_d6c8946949ece91ce43c989711393fec/testbuild/testprog
 [0m
-['/usr/bin/g++', '-Wl,-Bsymbolic-functions', '-Wl,-z,relro', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_d6c8946949ece91ce43c989711393fec/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-L/usr/lib', '-lpython2.7']
+['/usr/bin/g++', '-Wl,-Bsymbolic-functions', '-Wl,-z,relro', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_d6c8946949ece91ce43c989711393fec/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-L/usr/lib', '-lpython2.7']
 yes
 -------------------------------------------------------------------------
 Checking for compilation flag -fvisibility=hidden... support
@@ -154,7 +154,7 @@ int main() { return 0; }
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-fvisibility=hidden', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DHAVE_PYTHON_H=1', '../test.cc', '-c', '-o', 'test.cc.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/test.cc.1.o -> build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cc.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cc.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 ok
 -------------------------------------------------------------------------
 Checking for compilation flag -Wno-array-bounds... support
@@ -168,7 +168,7 @@ int main() { return 0; }
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-Wno-array-bounds', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DHAVE_PYTHON_H=1', '../test.cc', '-c', '-o', 'test.cc.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/test.cc.1.o -> build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cc.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cc.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_fe0ca542f39064c5a14ee41a2e983996/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 ok
 -------------------------------------------------------------------------
 Checking for pybindgen location
@@ -181,7 +181,7 @@ err: Traceback (most recent call last):
 ImportError: No module named pybindgen
 
 not found
-from /external/sdb/home/hrezae2/ICON/ICON/Research-project/bindings/python: Could not find the python module 'pybindgen'
+from /home/hrezae2/comsnets2019/ourpacing/pacer/bindings/python: Could not find the python module 'pybindgen'
 -------------------------------------------------------------------------
 Checking for click location
 not found
@@ -223,18 +223,18 @@ err: ../test.cpp: In function ‘int main()’:
   if (sizeof (uint128_t)) return 0;
               ^
 
-from /external/sdb/home/hrezae2/ICON/ICON/Research-project/src/core: Test does not build: Traceback (most recent call last):
-  File "/external/sdb/home/hrezae2/ICON/ICON/Research-project/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Tools/c_config.py", line 445, in run_c_code
+from /home/hrezae2/comsnets2019/ourpacing/pacer/src/core: Test does not build: Traceback (most recent call last):
+  File "/home/hrezae2/comsnets2019/ourpacing/pacer/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Tools/c_config.py", line 445, in run_c_code
     bld.compile()
-  File "/external/sdb/home/hrezae2/ICON/ICON/Research-project/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Build.py", line 190, in compile
+  File "/home/hrezae2/comsnets2019/ourpacing/pacer/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Build.py", line 190, in compile
     raise Errors.BuildError(self.producer.error)
 BuildError: Build failed
  -> task in 'testprog' failed (exit status 1): 
-	{task 140596374382736: cxx test.cpp -> test.cpp.1.o}
+	{task 140415350132048: cxx test.cpp -> test.cpp.1.o}
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 
 not found
-from /external/sdb/home/hrezae2/ICON/ICON/Research-project/src/core: The configuration failed
+from /home/hrezae2/comsnets2019/ourpacing/pacer/src/core: The configuration failed
 -------------------------------------------------------------------------
 Checking for type __uint128_t
 ==>
@@ -251,7 +251,7 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_703a8a276d4ad265d967b1b45f1fc578/testbuild/test.cpp.1.o -> build/.conf_check_703a8a276d4ad265d967b1b45f1fc578/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_703a8a276d4ad265d967b1b45f1fc578/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_703a8a276d4ad265d967b1b45f1fc578/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking high precision time implementation
@@ -271,7 +271,7 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_c59373285bc13999c3df79164cb29af1/testbuild/test.cpp.1.o -> build/.conf_check_c59373285bc13999c3df79164cb29af1/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_c59373285bc13999c3df79164cb29af1/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_c59373285bc13999c3df79164cb29af1/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for header inttypes.h
@@ -288,7 +288,7 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_591f7be6a22ba3cd4f507fd8bc09bd2a/testbuild/test.cpp.1.o -> build/.conf_check_591f7be6a22ba3cd4f507fd8bc09bd2a/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_591f7be6a22ba3cd4f507fd8bc09bd2a/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_591f7be6a22ba3cd4f507fd8bc09bd2a/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for header sys/inttypes.h
@@ -306,18 +306,18 @@ int main() {
 err: ../test.cpp:1:26: fatal error: sys/inttypes.h: No such file or directory
 compilation terminated.
 
-from /external/sdb/home/hrezae2/ICON/ICON/Research-project/src/core: Test does not build: Traceback (most recent call last):
-  File "/external/sdb/home/hrezae2/ICON/ICON/Research-project/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Tools/c_config.py", line 445, in run_c_code
+from /home/hrezae2/comsnets2019/ourpacing/pacer/src/core: Test does not build: Traceback (most recent call last):
+  File "/home/hrezae2/comsnets2019/ourpacing/pacer/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Tools/c_config.py", line 445, in run_c_code
     bld.compile()
-  File "/external/sdb/home/hrezae2/ICON/ICON/Research-project/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Build.py", line 190, in compile
+  File "/home/hrezae2/comsnets2019/ourpacing/pacer/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Build.py", line 190, in compile
     raise Errors.BuildError(self.producer.error)
 BuildError: Build failed
  -> task in 'testprog' failed (exit status 1): 
-	{task 140596373581904: cxx test.cpp -> test.cpp.1.o}
+	{task 140415349267472: cxx test.cpp -> test.cpp.1.o}
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 
 not found
-from /external/sdb/home/hrezae2/ICON/ICON/Research-project/src/core: The configuration failed
+from /home/hrezae2/comsnets2019/ourpacing/pacer/src/core: The configuration failed
 -------------------------------------------------------------------------
 Checking for header sys/types.h
 ==>
@@ -333,7 +333,7 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_293985459965597c97c3759b44ed252b/testbuild/test.cpp.1.o -> build/.conf_check_293985459965597c97c3759b44ed252b/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_293985459965597c97c3759b44ed252b/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_293985459965597c97c3759b44ed252b/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for header sys/stat.h
@@ -350,7 +350,7 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_114df6287ed99356d14a06682bc98197/testbuild/test.cpp.1.o -> build/.conf_check_114df6287ed99356d14a06682bc98197/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_114df6287ed99356d14a06682bc98197/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_114df6287ed99356d14a06682bc98197/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for header dirent.h
@@ -367,7 +367,7 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_38008f7ca978e5462e378992d39050f1/testbuild/test.cpp.1.o -> build/.conf_check_38008f7ca978e5462e378992d39050f1/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_38008f7ca978e5462e378992d39050f1/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_38008f7ca978e5462e378992d39050f1/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for header stdlib.h
@@ -384,7 +384,7 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_29f41b0aad55c9546dfc9b7ce9859059/testbuild/test.cpp.1.o -> build/.conf_check_29f41b0aad55c9546dfc9b7ce9859059/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_29f41b0aad55c9546dfc9b7ce9859059/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_29f41b0aad55c9546dfc9b7ce9859059/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for header signal.h
@@ -401,7 +401,7 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_cc227f9b4319ad1c726eca4fb806395e/testbuild/test.cpp.1.o -> build/.conf_check_cc227f9b4319ad1c726eca4fb806395e/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_cc227f9b4319ad1c726eca4fb806395e/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_cc227f9b4319ad1c726eca4fb806395e/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for header pthread.h
@@ -421,7 +421,7 @@ int main ()
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-pthread', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_2be466e82e703a744ee152afe2b58299/testbuild/test.cpp.1.o -> build/.conf_check_2be466e82e703a744ee152afe2b58299/testbuild/testprog
 [0m
-['/usr/bin/g++', '-pthread', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_2be466e82e703a744ee152afe2b58299/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', '-pthread', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_2be466e82e703a744ee152afe2b58299/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for header stdint.h
@@ -438,7 +438,7 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_c59373285bc13999c3df79164cb29af1/testbuild/test.cpp.1.o -> build/.conf_check_c59373285bc13999c3df79164cb29af1/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_c59373285bc13999c3df79164cb29af1/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_c59373285bc13999c3df79164cb29af1/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for header inttypes.h
@@ -455,7 +455,7 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_591f7be6a22ba3cd4f507fd8bc09bd2a/testbuild/test.cpp.1.o -> build/.conf_check_591f7be6a22ba3cd4f507fd8bc09bd2a/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_591f7be6a22ba3cd4f507fd8bc09bd2a/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_591f7be6a22ba3cd4f507fd8bc09bd2a/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for header sys/inttypes.h
@@ -473,18 +473,18 @@ int main() {
 err: ../test.cpp:1:26: fatal error: sys/inttypes.h: No such file or directory
 compilation terminated.
 
-from /external/sdb/home/hrezae2/ICON/ICON/Research-project/src/core: Test does not build: Traceback (most recent call last):
-  File "/external/sdb/home/hrezae2/ICON/ICON/Research-project/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Tools/c_config.py", line 445, in run_c_code
+from /home/hrezae2/comsnets2019/ourpacing/pacer/src/core: Test does not build: Traceback (most recent call last):
+  File "/home/hrezae2/comsnets2019/ourpacing/pacer/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Tools/c_config.py", line 445, in run_c_code
     bld.compile()
-  File "/external/sdb/home/hrezae2/ICON/ICON/Research-project/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Build.py", line 190, in compile
+  File "/home/hrezae2/comsnets2019/ourpacing/pacer/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Build.py", line 190, in compile
     raise Errors.BuildError(self.producer.error)
 BuildError: Build failed
  -> task in 'testprog' failed (exit status 1): 
-	{task 140596374583184: cxx test.cpp -> test.cpp.1.o}
+	{task 140415349314128: cxx test.cpp -> test.cpp.1.o}
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 
 not found
-from /external/sdb/home/hrezae2/ICON/ICON/Research-project/src/core: The configuration failed
+from /home/hrezae2/comsnets2019/ourpacing/pacer/src/core: The configuration failed
 -------------------------------------------------------------------------
 Checking for library rt
 ==>
@@ -499,7 +499,7 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-pthread', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_fc0bab0b855f90bf0795892663948c43/testbuild/test.cpp.1.o -> build/.conf_check_fc0bab0b855f90bf0795892663948c43/testbuild/testprog
 [0m
-['/usr/bin/g++', '-pthread', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_fc0bab0b855f90bf0795892663948c43/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lrt']
+['/usr/bin/g++', '-pthread', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_fc0bab0b855f90bf0795892663948c43/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lrt']
 yes
 -------------------------------------------------------------------------
 Checking for header netpacket/packet.h
@@ -516,14 +516,17 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_0927534631877d46f179382e3e16c60a/testbuild/test.cpp.1.o -> build/.conf_check_0927534631877d46f179382e3e16c60a/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_0927534631877d46f179382e3e16c60a/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_0927534631877d46f179382e3e16c60a/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for NSC location
 not found
 -------------------------------------------------------------------------
 Checking boost includes
-from /external/sdb/home/hrezae2/ICON/ICON/Research-project/src/openflow: headers not found, use --boost-includes=/path/to/boost
+1_58
+-------------------------------------------------------------------------
+Checking boost libs
+from /home/hrezae2/comsnets2019/ourpacing/pacer/src/openflow: lib signals not found in lib64
 not found
 -------------------------------------------------------------------------
 Checking for library sqlite3
@@ -539,8 +542,31 @@ int main() {
 ['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE_PACKET_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_39b3cecfac3989b2ed760243cef109e6/testbuild/test.cpp.1.o -> build/.conf_check_39b3cecfac3989b2ed760243cef109e6/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_39b3cecfac3989b2ed760243cef109e6/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lsqlite3']
-yes
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_39b3cecfac3989b2ed760243cef109e6/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lsqlite3']
+err: /usr/bin/ld: cannot find -lsqlite3
+collect2: error: ld returned 1 exit status
+
+from /home/hrezae2/comsnets2019/ourpacing/pacer/src/stats: Test does not build: Traceback (most recent call last):
+  File "/home/hrezae2/comsnets2019/ourpacing/pacer/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Tools/c_config.py", line 445, in run_c_code
+    bld.compile()
+  File "/home/hrezae2/comsnets2019/ourpacing/pacer/.waf-1.6.11-30618c54883417962c38f5d395f83584/waflib/Build.py", line 190, in compile
+    raise Errors.BuildError(self.producer.error)
+BuildError: Build failed
+ -> task in 'testprog' failed (exit status 1): 
+	{task 140415349449296: cxxprogram test.cpp.1.o -> testprog}
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_39b3cecfac3989b2ed760243cef109e6/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lsqlite3']
+
+not found
+from /home/hrezae2/comsnets2019/ourpacing/pacer/src/stats: The configuration failed
+-------------------------------------------------------------------------
+Checking for pkg-config flags for SQLITE3
+['/usr/bin/pkg-config', '--cflags', '--libs', 'sqlite3']: '' (exit code 1)
+Package sqlite3 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `sqlite3.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'sqlite3' found
+
+not found
 -------------------------------------------------------------------------
 Checking for header linux/if_tun.h
 ==>
@@ -553,29 +579,24 @@ int main() {
 <==
 [1/2] [32mcxx: build/.conf_check_e2bf758aaca47858b67848f504a8de27/test.cpp -> build/.conf_check_e2bf758aaca47858b67848f504a8de27/testbuild/test.cpp.1.o
 [0m
-['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE_PACKET_H=1', '-DSQLITE3=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
+['/usr/bin/g++', '-Wall', '-O0', '-march=native', '-DHAVE_PACKET_H=1', '../test.cpp', '-c', '-o', 'test.cpp.1.o']
 [2/2] [33mcxxprogram: build/.conf_check_e2bf758aaca47858b67848f504a8de27/testbuild/test.cpp.1.o -> build/.conf_check_e2bf758aaca47858b67848f504a8de27/testbuild/testprog
 [0m
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_e2bf758aaca47858b67848f504a8de27/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_e2bf758aaca47858b67848f504a8de27/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 -------------------------------------------------------------------------
 Checking for program sudo
 /usr/bin/sudo
-find program=['sudo'] paths=['/external/sdb/home/hrezae2/bin', '/external/sdb/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/usr/lib/jvm/java-8-oracle/bin', '/usr/lib/jvm/java-8-oracle/db/bin', '/usr/lib/jvm/java-8-oracle/jre/bin'] var='SUDO' -> '/usr/bin/sudo'
+find program=['sudo'] paths=['/home/hrezae2/bin', '/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='SUDO' -> '/usr/bin/sudo'
 -------------------------------------------------------------------------
 Checking for program valgrind
-not found
-find program=['valgrind'] paths=['/external/sdb/home/hrezae2/bin', '/external/sdb/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/usr/lib/jvm/java-8-oracle/bin', '/usr/lib/jvm/java-8-oracle/db/bin', '/usr/lib/jvm/java-8-oracle/jre/bin'] var='VALGRIND' -> ''
-from /external/sdb/home/hrezae2/ICON/ICON/Research-project: Could not find the program valgrind
+/usr/bin/valgrind
+find program=['valgrind'] paths=['/home/hrezae2/bin', '/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='VALGRIND' -> '/usr/bin/valgrind'
 -------------------------------------------------------------------------
 Checking for pkg-config flags for GSL
-['/usr/bin/pkg-config', '--cflags', '--libs', 'gsl']: '' (exit code 1)
-Package gsl was not found in the pkg-config search path.
-Perhaps you should add the directory containing `gsl.pc'
-to the PKG_CONFIG_PATH environment variable
-No package 'gsl' found
+['/usr/bin/pkg-config', '--cflags', '--libs', 'gsl']: '-lgsl -lgslcblas -lm\n' (exit code 0)
 
-not found
+ok
 -------------------------------------------------------------------------
 Checking for compilation flag -Wno-error=deprecated-d... support
 ==>
@@ -585,10 +606,10 @@ int main() { return 0; }
 <==
 [1/2] [32mc: build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/test.c -> build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/test.c.1.o
 [0m
-['/usr/bin/gcc', '-Wno-error=deprecated-declarations', '-DHAVE_PACKET_H=1', '-DSQLITE3=1', '-DHAVE_IF_TUN_H=1', '../test.c', '-c', '-o', 'test.c.1.o']
+['/usr/bin/gcc', '-Wno-error=deprecated-declarations', '-DHAVE_PACKET_H=1', '-DHAVE_IF_TUN_H=1', '-DENABLE_GSL', '../test.c', '-c', '-o', 'test.c.1.o']
 [2/2] [33mcprogram: build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/test.c.1.o -> build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/testprog
 [0m
-['/usr/bin/gcc', 'test.c.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/gcc', 'test.c.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 ok
 -------------------------------------------------------------------------
 Checking for compilation flag -fstrict-aliasing... support
@@ -599,10 +620,10 @@ int main() { return 0; }
 <==
 [1/2] [32mc: build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/test.c -> build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/test.c.1.o
 [0m
-['/usr/bin/gcc', '-fstrict-aliasing', '-DHAVE_PACKET_H=1', '-DSQLITE3=1', '-DHAVE_IF_TUN_H=1', '../test.c', '-c', '-o', 'test.c.1.o']
+['/usr/bin/gcc', '-fstrict-aliasing', '-DHAVE_PACKET_H=1', '-DHAVE_IF_TUN_H=1', '-DENABLE_GSL', '../test.c', '-c', '-o', 'test.c.1.o']
 [2/2] [33mcprogram: build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/test.c.1.o -> build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/testprog
 [0m
-['/usr/bin/gcc', 'test.c.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/gcc', 'test.c.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 ok
 -------------------------------------------------------------------------
 Checking for compilation flag -Wstrict-aliasing... support
@@ -613,13 +634,12 @@ int main() { return 0; }
 <==
 [1/2] [32mc: build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/test.c -> build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/test.c.1.o
 [0m
-['/usr/bin/gcc', '-Wstrict-aliasing', '-DHAVE_PACKET_H=1', '-DSQLITE3=1', '-DHAVE_IF_TUN_H=1', '../test.c', '-c', '-o', 'test.c.1.o']
+['/usr/bin/gcc', '-Wstrict-aliasing', '-DHAVE_PACKET_H=1', '-DHAVE_IF_TUN_H=1', '-DENABLE_GSL', '../test.c', '-c', '-o', 'test.c.1.o']
 [2/2] [33mcprogram: build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/test.c.1.o -> build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/testprog
 [0m
-['/usr/bin/gcc', 'test.c.1.o', '-o', '/external/sdb/home/hrezae2/ICON/ICON/Research-project/build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/gcc', 'test.c.1.o', '-o', '/home/hrezae2/comsnets2019/ourpacing/pacer/build/.conf_check_d8a2c40aecfb7c8eac7dd03fcbfb1110/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 ok
 -------------------------------------------------------------------------
 Checking for program doxygen
-not found
-find program=['doxygen'] paths=['/external/sdb/home/hrezae2/bin', '/external/sdb/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/usr/lib/jvm/java-8-oracle/bin', '/usr/lib/jvm/java-8-oracle/db/bin', '/usr/lib/jvm/java-8-oracle/jre/bin'] var='DOXYGEN' -> ''
-from /external/sdb/home/hrezae2/ICON/ICON/Research-project: Could not find the program doxygen
+/usr/bin/doxygen
+find program=['doxygen'] paths=['/home/hrezae2/bin', '/home/hrezae2/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='DOXYGEN' -> '/usr/bin/doxygen'

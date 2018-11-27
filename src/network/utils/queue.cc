@@ -39,8 +39,6 @@ Queue::GetTypeId (void)
                      MakeTraceSourceAccessor (&Queue::m_traceDrop))
     .AddTraceSource ("PacketDrop", "An integer value to trace.",
                        MakeTraceSourceAccessor (&Queue::m_myInt))
-    .AddTraceSource ("PacketSize", "An integer value to trace.",
-                       MakeTraceSourceAccessor (&Queue::m_nBytes))
    ;
 
   return tid;

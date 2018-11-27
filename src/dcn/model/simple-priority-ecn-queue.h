@@ -35,7 +35,7 @@ class TraceContainer;
 class SimplePriorityEcnQueue: public Queue{
 public:
   static TypeId GetTypeId (void);
-int Getqueuesize();
+  int Getqueuesize();
   /**
    * \brief DropTailQueue Constructor
    *
@@ -62,7 +62,6 @@ int Getqueuesize();
   SimplePriorityEcnQueue::QueueMode GetMode (void);
 
   void SetTh (uint32_t th);
-
   uint32_t m_bytesInQueue;
 protected:
   friend class PointToPointNetDevice;

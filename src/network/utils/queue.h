@@ -163,8 +163,7 @@ protected:
   void Drop (Ptr<Packet> packet);
 
   //XXX: rearchitect so that PriorityQueue doesn't need to set these
- // uint32_t m_nBytes;
-  TracedValue<int32_t>  m_nBytes;
+  uint32_t m_nBytes;
   uint32_t m_nPackets;
 
 private:

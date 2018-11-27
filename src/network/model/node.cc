@@ -88,36 +88,9 @@ Node::Construct (void)
   NS_LOG_FUNCTION (this);
   m_node_type = 0; //sharedbuffer
   m_id = NodeList::Add (this);
-  m_calculateincast = false;
-  m_ecnmarked = false;
-  m_receiverlist.clear();
-  m_addedvalue.clear();
-  m_incastCount = 1;
-  m_alpha = 1;
-  m_max = 1;
-  newvalue = 0;
-  oldvalue = 0;
   m_node_lastQ = 29;
-  m_activeflows = 0;
-  m_peer_flows.clear();
-  for (unsigned i=0; i<128; i++) {
-                if(i>=0 && i<30) {
-                        m_incast_pauseT[i] = 0.0000;
-                }
-                else if(i>=30 && i<60) {
-                        m_incast_pauseT[i] = 0.0000;
-
-                }
-                else if(i>=60 && i<90) {
-                        m_incast_pauseT[i] = 0.0000;
-
-                }
-                else {
-                        m_incast_pauseT[i] = 0.0;
-                }
-
-  }
-
+  m_calculateincast = false;
+  m_receiverlist.clear();
 }
 
 Node::~Node ()
@@ -137,24 +110,6 @@ Node::GetSystemId (void) const
 {
   NS_LOG_FUNCTION (this);
   return m_sid;
-}
-
-void
-Node::AddFlow ()
-{
-  m_activeflows++;
-}
-
-void
-Node::DeleteFlow ()
-{
-  m_activeflows--;
-}
-
-uint32_t
-Node::GetNFlows ()
-{
-  return m_activeflows;
 }
 
 uint32_t

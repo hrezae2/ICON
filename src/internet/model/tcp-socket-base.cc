@@ -40,7 +40,6 @@
 #include "tcp-header.h" // Changed to Add ECMP
 #include "ns3/simulator.h"
 #include "ns3/packet.h"
-#include "ns3/order-tag.h"
 #include "ns3/priority-tag.h"
 #include "ns3/integer.h"
 #include "ns3/uinteger.h"
@@ -58,7 +57,6 @@
 #include <string>
 
 #include <algorithm>
-#include <stdlib.h>
 
 NS_LOG_COMPONENT_DEFINE ("TcpSocketBase");
 
@@ -102,10 +100,6 @@ TcpSocketBase::GetTypeId (void)
     .AddAttribute ("Priority", "The priority of the socket",
                    UintegerValue (0),
                    MakeUintegerAccessor (&TcpSocketBase::m_priority),
-                   MakeUintegerChecker<uint32_t> ())
-    .AddAttribute ("ReceiverDegree", "The incast degree on the peer socket node",
-                   UintegerValue (1),
-                   MakeUintegerAccessor (&TcpSocketBase::m_Rdegree),
                    MakeUintegerChecker<uint32_t> ())
     .AddAttribute ("IncastServer",
                    "Whether the node is Incast Server",
@@ -153,7 +147,6 @@ TcpSocketBase::TcpSocketBase (void)
   : m_dupAckCount (0),
     m_delAckCount (0),
     m_priority (-1),
-    m_Rdegree (1),
     m_seqnum (0),
     m_windownum (0),
     m_blocked (false),
@@ -176,8 +169,8 @@ TcpSocketBase::TcpSocketBase (void)
     m_closeOnEmpty (false),
     m_shutdownSend (false),
     m_shutdownRecv (false),
+    FCTFlag(false),
     m_connected (false),
-    //m_ecnmarked(false),
     m_segmentSize (0),
     // For attribute initialization consistency (quiet valgrind)
     m_rWnd (0)
@@ -199,7 +192,6 @@ TcpSocketBase::TcpSocketBase (const TcpSocketBase& sock)
     m_seqnum (0),
     m_windownum (0),
     m_priority (sock.m_priority),
-    m_Rdegree (sock.m_Rdegree),
     m_blocking (sock.m_blocking),
     //m_blocked (sock.m_blocked),
     m_blocked (false),
@@ -923,49 +915,6 @@ TcpSocketBase::DoForwardUp (Ptr<Packet> packet, Ipv4Header header, uint16_t port
 
   // Peel off TCP header and do validity checking
   TcpHeader tcpHeader;
-  OrderTag xOtag;
-  packet->PeekPacketTag (xOtag);
-  m_Rdegree = xOtag.GetOrder ();
-
-  if (m_Rdegree < 41){
-   if (m_Rdegree > m_node->m_max || m_Rdegree == m_node->m_max){
-   m_node->m_max = m_Rdegree;
-   m_node->m_alpha = m_Rdegree;
-				}
-   else if (m_Rdegree > 1 && m_Rdegree < m_node->m_max && m_Rdegree < m_node->m_alpha){
-   // if (m_node->GetId() == 377){
-  // std::cout<<m_node->GetId()<<"\t"<<m_Rdegree<<"\t"<<"11111"<<"\n";
-   m_node->m_alpha = (5*(m_node->m_alpha)/6) + (m_Rdegree/6);
-   m_Rdegree = m_node->m_alpha;
-  // std::cout<<m_node->GetId()<<"\t"<<m_node->m_alpha<<"\t"<<"222222"<<"\n";
-											}						//	}
-   else {  //m_Rdegree = 0
-   m_Rdegree = m_node->m_max;
-        }
-		    }
-  else {
-	m_Rdegree == m_node->m_max;
-       }
-	
-  // if (m_node->GetId() == 377){
-  // std::cout<<m_Rdegree<<"\t"<<m_node->m_alpha<<"\n";
-    //            }
-			
-   for (uint32_t i=0;i<90;i++)
-   {
-     if(m_node->m_node_Map_Flow[i] == m_endPoint->GetPeerAddress ().Get ())
-     {
-	 
-     double gap =  0.00000116*m_Rdegree;
-     if(gap < 0.0000084)
-        gap = 0.0000084;
-     if(!(m_Rdegree == 0))
-       {
-                 m_node->m_incast_pauseT[i] = gap;
-       }
-     }
-
-   }
 
   uint8_t ecncount = header.GetTos() & 0x1C;
   ecncount = ecncount >> 2 ;
@@ -1221,13 +1170,6 @@ TcpSocketBase::ReceivedAck (Ptr<Packet> packet, const TcpHeader& tcpHeader)
     { // Case 3: New ACK, reset m_dupAckCount and update m_txBuffer
       NS_LOG_LOGIC ("New ack of " << tcpHeader.GetAckNumber ());
       NewAck (tcpHeader.GetAckNumber ());
-      OrderTag xOtag;
-      packet->PeekPacketTag (xOtag);
-      m_Rdegree = xOtag.GetOrder ();
-      if (m_Rdegree > 43){
-      m_Rdegree = 40;
-      }
-     // std::cout<<"The Receiver Degree is :"<<m_Rdegree<<"\n";
       m_dupAckCount = 0;
     }
   // If there is any data piggybacked, store it into m_rxBuffer
@@ -1310,13 +1252,6 @@ TcpSocketBase::ProcessSynSent (Ptr<Packet> packet, const TcpHeader& tcpHeader)
       m_txBuffer.SetHeadSequence (m_nextTxSequence);
       SendEmptyPacket (TcpHeader::ACK, tcpHeader.GetEcnCount());
       SendPendingData (m_connected);
-      OrderTag xOtag;
-      packet->PeekPacketTag (xOtag);
-      m_Rdegree = xOtag.GetOrder ();
-      if (m_Rdegree > 43){
-      m_Rdegree = 40;
-      }
-     // std::cout<<"The Receiver Degree is :"<<m_Rdegree<<"\n";  
       Simulator::ScheduleNow (&TcpSocketBase::ConnectionSucceeded, this);
       // Always respond to first data packet to speed up the connection.
       // Remove to get the behaviour of old NS-3 code.
@@ -1722,12 +1657,6 @@ TcpSocketBase::SendEmptyPacket (uint8_t flags, uint8_t ecncount)
       p->AddPacketTag (ipHopLimitTag);
     }
 
-//Adding Incast in Order
-  OrderTag otag;
- // std::cout<<m_node->m_incastCount<<"\n";
-  otag.SetOrder (m_node->m_incastCount);
-  p->AddPacketTag (otag);
-  
   if (m_endPoint == 0 && m_endPoint6 == 0)
     {
       NS_LOG_WARN ("Failed to send empty packet due to null endpoint");
@@ -1840,8 +1769,9 @@ TcpSocketBase::SendPacket (Ptr<Packet> packet, const TcpHeader &outgoing,
                         MappedPriority = 32;
       		}
 	      else{
+
 			bool alreadyMapped = false;
-     		        for (uint32_t i=0;i<128;i++)
+     		        for (uint32_t i=0;i<30;i++)
           		{
              		   if(m_node->m_node_Map_Flow[i] == m_endPoint->GetPeerAddress ().Get ())
                		 {
@@ -1871,11 +1801,6 @@ TcpSocketBase::SendPacket (Ptr<Packet> packet, const TcpHeader &outgoing,
       priTag.SetPriority (MappedPriority);
       packet->AddPacketTag (priTag);
       NS_LOG_LOGIC ("TcpSocketBase: Sending packet with priority: " << MappedPriority);
-
-//Adding Incast in Order
-  OrderTag otag;
-  otag.SetOrder (m_node->m_incastCount);
-  packet->AddPacketTag (otag);
 
 
   if (outgoing.GetFlags () & TcpHeader::ACK)
@@ -2102,9 +2027,7 @@ TcpSocketBase::SendDataPacket (SequenceNumber32 seq, uint32_t maxSize, bool with
       ipHopLimitTag.SetHopLimit (GetIpv6HopLimit ());
       p->AddPacketTag (ipHopLimitTag);
     }
-  OrderTag otag;
-  otag.SetOrder (m_node->m_incastCount);
-  p->AddPacketTag (otag);
+
   if (m_closeOnEmpty && (remainingData == 0))
     {
       flags |= TcpHeader::FIN;
@@ -2354,12 +2277,7 @@ TcpSocketBase::ReceivedData (Ptr<Packet> p, const TcpHeader& tcpHeader)
   NS_LOG_LOGIC ("seq " << tcpHeader.GetSequenceNumber () <<
                 " ack " << tcpHeader.GetAckNumber () <<
                 " pkt size " << p->GetSize () );
-   //hamed
-  OrderTag xOtag;
-  p->PeekPacketTag (xOtag);
-  m_Rdegree = xOtag.GetOrder ();
- // std:://cout<<"for node:\t"<<m_node->GetId()<<"\tThe Receiver Degree isxxxxxxxxxxxxxxxxxx :\t"<<m_Rdegree<<"\n";
-
+ 
   //XXX
   PriorityTag tag;
   std::ostringstream oss;
@@ -2491,13 +2409,14 @@ TcpSocketBase::NewAck (SequenceNumber32 const& ack)
     }
 
   //XXX: Brent - hopefully this will work
-  if (m_state == FIN_WAIT_1)
+  if (m_state == FIN_WAIT_1 && FCTFlag == false)
     {
       //NS_LOG_UNCOND ("FIN_WAIT_1: ack=" << ack << ", nextTx=" << m_nextTxSequence);
       if (ack == m_nextTxSequence)
         { // This ACK corresponds to the FIN sent. This socket closed peacefully.
           flowendtime = Simulator::Now();
           double duration = flowendtime.GetNanoSeconds() - flowstarttime.GetNanoSeconds();
+	  FCTFlag = true;
           double rxMB = ((double)flowbytes) / (1024 * 1024);
         //double tputMb = 8.0 * m_totalRx * 1000 / duration;
         ofstream outfile;

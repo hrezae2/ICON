@@ -25,27 +25,28 @@ uint32_t        NumberofRacks             = 20;
 uint32_t        NumberofSpineSwitches     = 10;
 uint32_t        Scale                     = 1;
 double          load                      = 0.1;
-uint32_t 	threshold 		  = 22.5e3;
-uint32_t 	queueBytes 		  = 225e3;      // Number of bytes per queue port
-uint32_t 	initCwnd 		  = 10;         // TCP Initial Congestion Window
-double 		minRto 			  = 10000e-6; 
-uint32_t 	segmentSize 		  = 1460;
+uint32_t        threshold                 = 22.5e3;
+uint32_t        queueBytes                = 225e3;      // Number of bytes per queue port
+uint32_t        initCwnd                  = 10;         // TCP Initial Congestion Window
+double          minRto                    = 10000e-6;
+uint32_t        segmentSize               = 1460;
 bool            LinkUtilization           = 0;
-string          StatsFileName             = "128Dummy.txt";
+string          StatsFileName             = "dummy1.txt";
 double          interval                  = 0.010;
 
-uint32_t	incastDegree		  = 32;
-double		incastFactor		  = 0.5;
+uint32_t        incastDegree              = 24;
+double          incastFactor              = 0.5;
 
-double          longLoadFactor	          = 0.8;
+double          longLoadFactor            = 0.8;
 double          longNodeFactor            = 0.3;
 
 uint32_t        FlowSizeShort             = 16*1024;
 uint32_t        FlowSizeLong              = 1024 * 1024;
+uint32_t        IncastFlowSizeLong        = 64*1024;
 
-bool 		pktspray 		  = 0;
-bool		dctcp			  = 1; 
-double 		testruntime		  = 0.25;
+bool            pktspray                  = 0;
+bool            dctcp                     = 1;
+double          testruntime               = 0.25;
 // Derived Parameters
 uint32_t	LongRequestsPerNode;
 uint32_t	ShortRequestsPerNode;
@@ -84,31 +85,6 @@ void QueuedPackets(uint32_t oldValue, uint32_t newValue)
 }
 
 
-void
-RandomIncastDegree (void)
-{
-
-  Ptr<UniformRandomVariable> UniformlyRandomly = CreateObject<UniformRandomVariable> ();
-  UniformlyRandomly->SetAttribute ("Min", DoubleValue (1));
-  UniformlyRandomly->SetAttribute ("Max", DoubleValue (5));
-  if (UniformlyRandomly->GetValue () == 1){
-        incastDegree = 8;
-             }
-  else if  (UniformlyRandomly->GetValue () == 2) {
-        incastDegree = 16;
-             }
-  else if  (UniformlyRandomly->GetValue () == 3) {
-        incastDegree = 24;
-             }
-  else if  (UniformlyRandomly->GetValue () == 4) {
-        incastDegree = 32;
-             }
-  else {
-        incastDegree = 40;
-             }
-}
-
-
 
 void
 QueueStat ()
@@ -117,7 +93,23 @@ QueueStat ()
 //  Simulator::Schedule (Seconds(0.1), &QueueStat);
 
 }
+void
+randomShort (void)
+{
 
+  Ptr<UniformRandomVariable> UniformlyRandomly = CreateObject<UniformRandomVariable> ();
+  UniformlyRandomly->SetAttribute ("Min", DoubleValue (1));
+  UniformlyRandomly->SetAttribute ("Max", DoubleValue (99));
+  if (UniformlyRandomly->GetValue () < 34){
+        FlowSizeShort = 8 * 1024;
+                                          }
+  else if  (33 < UniformlyRandomly->GetValue () && UniformlyRandomly->GetValue () < 67) {
+        FlowSizeShort = 16 * 1024;
+                                                        }
+  else {
+        FlowSizeShort = 32 * 1024;
+        }
+}
 void Configure_Simulator(){
   bool status = true;
   NS_LOG_INFO ("Configuring the DataCenter Simulator");
@@ -356,22 +348,12 @@ void SetDataRate(Ptr<Node> rnode, int DummyID)
 
 double  AppDelay(){
 
-  Ptr<UniformRandomVariable> ApplicationDelay = CreateObject<UniformRandomVariable> ();
-  ApplicationDelay->SetAttribute ("Min", DoubleValue (1));
-  ApplicationDelay->SetAttribute ("Max", DoubleValue (100));
-  double  delay;
-  uint8_t chance = ApplicationDelay->GetInteger(1,100);
-  if (chance < 80)
-  {
-        delay =  0.00;
-  }
-  else
-  {
-        delay = 0.000082;
-  }
+  Ptr<ExponentialRandomVariable> ApplicationDelay = CreateObject<ExponentialRandomVariable> ();
+  ApplicationDelay->SetAttribute ("Mean", DoubleValue (10));
+  ApplicationDelay->SetAttribute ("Bound", DoubleValue (120));
+  double  delay = ApplicationDelay->GetValue();
   return delay;
 }
-
 
 void Setup_Workload(){
   vector <uint32_t> AppIdxLong;
@@ -464,6 +446,7 @@ void Setup_Workload(){
   for (uint32_t k=0;k < ShortRequestsPerNode; k++){
   	random_shuffle(AppIdxShort.begin(),AppIdxShort.end());
   	for (uint32_t i=0;i<AppIdxShort.size(); i=i+2){
+		randomShort();
       		ServerNodeIdx = AppIdxShort[i];
       		ClientNodeIdx = AppIdxShort[i+1];
       		do {
@@ -473,12 +456,12 @@ void Setup_Workload(){
       		Time Curr_Start = Prev_Start[ClientNodeIdx] + Seconds (DelayRandomlyShort->GetValue());
       		Prev_Start[ClientNodeIdx] = Curr_Start;
       		SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start,0);
-      		SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start,0, 0);
+      		SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start,0,0);
 		NumShortFlows++;
                 Curr_Start = Prev_Start[ServerNodeIdx] + Seconds (DelayRandomlyShort->GetValue());
                 Prev_Start[ServerNodeIdx] = Curr_Start;
                 SetupServerTraffic(nEnd[ClientNodeIdx],appPort,Curr_Start,0);
-                SetupClientTraffic(nEnd[ServerNodeIdx],nEnd[ClientNodeIdx],FlowSizeShort,appPort,Curr_Start,0, 0);
+                SetupClientTraffic(nEnd[ServerNodeIdx],nEnd[ClientNodeIdx],FlowSizeShort,appPort,Curr_Start,0,0);
 		NumShortFlows++;
 	}
   }
@@ -497,12 +480,12 @@ void Setup_Workload(){
                 Time Curr_Start = Prev_Start[ClientNodeIdx] + Seconds (DelayRandomlyLong->GetValue());
                 Prev_Start[ClientNodeIdx] = Curr_Start;
                 SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start,0);
-                SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeLong,appPort,Curr_Start,0, 0);
+                SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeLong,appPort,Curr_Start,0,0);
 		NumLongFlows++;
                 Curr_Start = Prev_Start[ServerNodeIdx] + Seconds (DelayRandomlyLong->GetValue());
                 Prev_Start[ServerNodeIdx] = Curr_Start;
                 SetupServerTraffic(nEnd[ClientNodeIdx],appPort,Curr_Start,0);
-                SetupClientTraffic(nEnd[ServerNodeIdx],nEnd[ClientNodeIdx],FlowSizeLong,appPort,Curr_Start,0, 0);
+                SetupClientTraffic(nEnd[ServerNodeIdx],nEnd[ClientNodeIdx],FlowSizeLong,appPort,Curr_Start,0,0);
 		NumLongFlows++;
         }
   }
@@ -526,7 +509,6 @@ void Setup_Workload(){
   
 
  for(uint32_t i=0; i <IncastAggregators.size();i++){
-	RandomIncastDegree();
   	random_shuffle(IncastSenders.begin(),IncastSenders.end());
 	for(uint32_t j=0;j<incastDegree;j++)
 	{
@@ -541,6 +523,7 @@ void Setup_Workload(){
   for (uint32_t k=0;k < IncastRequestsPerNode; k++){
         for (uint32_t i=0;i<IncastAggregators.size(); i++){
                 ServerNodeIdx = IncastAggregators[i];
+		randomShort();
                 do {
                 	appPort = UniformlyRandomly->GetInteger(0,65535);
                    } while (find(Map_Port[ServerNodeIdx].begin(),Map_Port[ServerNodeIdx].end(),appPort) != Map_Port[ServerNodeIdx].end());
@@ -550,12 +533,17 @@ void Setup_Workload(){
                 SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start,0);
 		vector<uint32_t> ClientIdx = Map_Client[ServerNodeIdx];
 		for(uint32_t j=0;j<ClientIdx.size();j++)
-		{
-                	
-			ClientNodeIdx = ClientIdx[j];
-		//	SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start+Seconds (ApplicationDelay->GetValue()),1);
-			SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start+Seconds (AppDelay()),0, 1);
-		}
+                {
+                        ClientNodeIdx = ClientIdx[j];
+                        if (j==0){      //j % incastDegree == 0;
+                        SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],IncastFlowSizeLong,appPort,Curr_Start,0,1);
+
+                                         }
+                        else {
+
+                        SetupClientTraffic(nEnd[ClientNodeIdx],nEnd[ServerNodeIdx],FlowSizeShort,appPort,Curr_Start+Seconds (0.000080 + AppDelay()/1000000),0,1);
+                                }
+                }
         	NumIncastFlows++;
 	}
   }

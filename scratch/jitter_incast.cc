@@ -17,23 +17,23 @@ using namespace std;
 // Parameters
 double          d_LinkSpeed               = 10.0;
 string          LinkSpeed                 = "10Gbps";
-string          LinkDelay                 = "15us";
-double          linkDelay                 = 15e-6;
+string          LinkDelay                 = "10us";
+double          linkDelay                 = 10e-6;
 uint32_t        MachinesPerRack           = 20;
 uint32_t        NumberofRacks             = 20;
 uint32_t        NumberofSpineSwitches     = 10;
 uint32_t        Scale                     = 1;
-double          load                      = 0.3;
-uint32_t 	threshold 		  = 22.5e3;
-uint32_t 	queueBytes 		  = 225e3;      // Number of bytes per queue port
+double          load                      = 0.1;
+uint32_t 	threshold 		  = 35e3;
+uint32_t 	queueBytes 		  = 350e3;      // Number of bytes per queue port
 uint32_t 	initCwnd 		  = 10;         // TCP Initial Congestion Window
 double 		minRto 			  = 10000e-6; 
 uint32_t 	segmentSize 		  = 1460;
 bool            LinkUtilization           = 0;
-string          StatsFileName             = "dummy.txt";
+string          StatsFileName             = "Dummy.txt";
 double          interval                  = 0.010;
 
-uint32_t	incastDegree		  = 24;
+uint32_t	incastDegree		  = 32;
 double		incastFactor		  = 0.5;
 
 double          longLoadFactor	          = 0.8;
@@ -43,7 +43,7 @@ uint32_t        FlowSizeShort             = 16*1024;
 uint32_t        FlowSizeLong              = 1024 * 1024;
 
 bool 		pktspray 		  = 0;
-bool		dctcp			  = 1; 
+bool		dctcp			  = 0; 
 double 		testruntime		  = 0.25;
 // Derived Parameters
 uint32_t	LongRequestsPerNode;
@@ -82,32 +82,6 @@ void QueuedPackets(uint32_t oldValue, uint32_t newValue)
   NS_LOG_INFO ("Packets in Queue at " << Simulator::Now ().GetSeconds ()<<"are \t"<<newValue);
 
 }
-
-void
-RandomIncastDegree (void)
-{
-
-  Ptr<UniformRandomVariable> UniformlyRandomly = CreateObject<UniformRandomVariable> ();
-  UniformlyRandomly->SetAttribute ("Min", DoubleValue (1));
-  UniformlyRandomly->SetAttribute ("Max", DoubleValue (5));
-  if (UniformlyRandomly->GetValue () == 1){
-        incastDegree = 8;
-             }
-  else if  (UniformlyRandomly->GetValue () == 2) {
-        incastDegree = 16;
-             }
-  else if  (UniformlyRandomly->GetValue () == 3) {
-        incastDegree = 24;
-             }
-  else if  (UniformlyRandomly->GetValue () == 4) {
-        incastDegree = 32;
-             }
-  else {
-        incastDegree = 40;
-             }
-}
-
-
 
 void
 QueueStat ()
@@ -491,7 +465,6 @@ void Setup_Workload(){
   
 
  for(uint32_t i=0; i <IncastAggregators.size();i++){
-	RandomIncastDegree ();
   	random_shuffle(IncastSenders.begin(),IncastSenders.end());
 	for(uint32_t j=0;j<incastDegree;j++)
 	{
@@ -512,9 +485,9 @@ void Setup_Workload(){
                 Map_Port[ServerNodeIdx].push_back(appPort);
                 Time Curr_Start = Prev_Start[ServerNodeIdx] + Seconds (DelayRandomlyIncast->GetValue());
                 Prev_Start[ServerNodeIdx] = Curr_Start;
-		//if(i == 15){
-                //SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start, true);
- 		//}
+		if(i == 15){
+                SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start, true);
+ 		}
                 SetupServerTraffic(nEnd[ServerNodeIdx],appPort,Curr_Start, false);
 		vector<uint32_t> ClientIdx = Map_Client[ServerNodeIdx];
 		for(uint32_t j=0;j<ClientIdx.size();j++)
@@ -650,8 +623,6 @@ main (int argc, char *argv[])
   cmd.AddValue ("random",		  "Load Balancing : Random ECMP", 	pktspray); 
   cmd.AddValue ("incastdegree", 	  "Degree of Incast",			incastDegree);
   cmd.AddValue ("filename",               "FileName to Dump Stats",	        StatsFileName);
-  cmd.AddValue ("numofspines",            "oversub factor",                     NumberofSpineSwitches);
-  cmd.AddValue ("numofracks",             "num of tor switches",                NumberofRacks);
   cmd.AddValue ("linkutilization",        "Measure Link Utilization",      	LinkUtilization);
   cmd.Parse (argc, argv);
     if(!dctcp)

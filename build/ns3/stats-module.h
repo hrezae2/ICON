@@ -13,6 +13,5 @@
 #include "data-output-interface.h"
 #include "omnet-data-output.h"
 #include "packet-data-calculators.h"
-#include "sqlite-data-output.h"
 #include "time-data-calculators.h"
 #endif

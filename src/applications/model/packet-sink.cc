@@ -113,9 +113,8 @@ void PacketSink::DoDispose (void)
 void MeasureIncast(Ptr <Node> Nd)
 {
 
-//  std::cout<<"Time\t"<<Simulator::Now().GetMicroSeconds()<<"\tNode\t"<<Nd->GetId()<<"\tCount\t"<<Nd->m_receiverlist.size()<<"\n";
+  std::cout<<"Time\t"<<Simulator::Now().GetMicroSeconds()<<"\tNode\t"<<Nd->GetId()<<"\tCount\t"<<Nd->m_receiverlist.size()<<"\n";
   Nd->m_receiverlist.clear();
-  Nd->m_incastCount = 1;
   Simulator::Schedule(Seconds(0.00008),&MeasureIncast, Nd);
 }
 // Application Methods
@@ -207,9 +206,7 @@ void PacketSink::HandleRead (Ptr<Socket> socket)
                        << " total Rx " << m_totalRx << " bytes");
         }
  if (m_incast)
-  {
- // std::cout<<m_node->GetId()<<"\n";
- 
+ {
    uint32_t dummyIP = InetSocketAddress::ConvertFrom(from).GetIpv4 ().Get();
    bool addIn = true;
    for (uint32_t i =0; i<m_node->m_receiverlist.size();i++)
@@ -220,9 +217,7 @@ void PacketSink::HandleRead (Ptr<Socket> socket)
 	}
    }
   if(addIn){
-   m_node->m_incastCount++;
    m_node->m_receiverlist.push_back(dummyIP);
-  // std::cout<<m_node->GetId()<<"\t"<<m_node->m_incastCount<<"\n";
  }
   }
       m_rxTrace (packet, from);

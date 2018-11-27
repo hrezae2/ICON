@@ -42,10 +42,10 @@ def ReadFile():
 		c,d = fsize[i].split('\t')
                 a,b = fct[i].split('\t')
 		c = float(c)
-		if(c == 16):
+		if(c == 16 or c == 8 or c == 32):
 			list_of_shortflows.append(a)
 			num_of_shortflows+=1
-		elif(c == 1024):
+		elif(c > 1023 or c == 64):
 			list_of_longflows.append(a)
 			num_of_longflows+=1
 		for i in range (0,num_of_shortflows):

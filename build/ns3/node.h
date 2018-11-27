@@ -22,9 +22,7 @@
 #define NODE_H
 
 #include <vector>
-#include <iomanip>
 
-#include "ns3/core-module.h"
 #include "ns3/object.h"
 #include "ns3/callback.h"
 #include "ns3/ptr.h"
@@ -124,18 +122,6 @@ public:
    */
   uint32_t GetNApplications (void) const;
 
-  void AddFlow ();
-  void DeleteFlow ();
-  uint32_t GetNFlows (void);
-  bool m_calculateincast;
-  bool m_ecnmarked;
-  std::vector <uint32_t> m_receiverlist;
-  std::vector <uint32_t> m_addedvalue;
-  uint32_t m_incastCount;
-  uint32_t m_alpha;
-  uint32_t m_max;
-  uint32_t newvalue;
-  uint32_t oldvalue;
   /**
    * A protocol handler
    *
@@ -227,10 +213,8 @@ public:
   uint32_t m_node_lastQ;
   //Shim layer
   uint32_t m_node_Map_Flow[128];
-  std::map <uint32_t, uint16_t> m_peer_flows;
-  double m_incast_pauseT[128];
-  
-
+  bool m_calculateincast;
+  std::vector <uint32_t> m_receiverlist;
 private:
   void NotifyDeviceAdded (Ptr<NetDevice> device);
   bool NonPromiscReceiveFromDevice (Ptr<NetDevice> device, Ptr<const Packet>, uint16_t protocol, const Address &from);
@@ -254,7 +238,6 @@ private:
   uint32_t    m_sid;        // System id for this node
   std::vector<Ptr<NetDevice> > m_devices;
   std::vector<Ptr<Application> > m_applications;
-  uint32_t m_activeflows;
   ProtocolHandlerList m_handlers;
   DeviceAdditionListenerList m_deviceAdditionListeners;
 };

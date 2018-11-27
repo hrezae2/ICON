@@ -93,21 +93,21 @@ MQQNetDevice::MQQNetDevice () :  m_lastQ(qCnt-1)
         	dtqueue->SetAttributeFailSafe("MaxBytes",  UintegerValue(8 *1024 * 1024)); //4 MB typical to accomodate 
 		if(i>=0 && i<10) {
 			m_pauseT.push_back(Seconds(0.000012));//
-//			m_incast_pauseT.push_back(Seconds(3.72e-05));
+			m_incast_pauseT.push_back(Seconds(3.022e-05));
 		}
 		else if(i>=10 && i<20) {
                         m_pauseT.push_back(Seconds(0.000006));
-  //                    m_incast_pauseT.push_back(Seconds(3.72e-05));
+                        m_incast_pauseT.push_back(Seconds(3.022e-05));
 
                 }
 		else if(i>=20 && i<30) {
                         m_pauseT.push_back(Seconds(0.000003));
-  //                      m_incast_pauseT.push_back(Seconds(3.72e-05));
+                        m_incast_pauseT.push_back(Seconds(3.022e-05));
 
                 }
 		else {
 			m_pauseT.push_back(Seconds(0.0000));
-    //                    m_incast_pauseT.push_back(Seconds(0.0));
+                        m_incast_pauseT.push_back(Seconds(0.0));
 		}
 
 	};
@@ -216,12 +216,10 @@ MQQNetDevice::DequeueAndTransmit (void)
          		if(!m_incastserver){
 	                m_resumeEvt[qIndex] = Simulator::Schedule(m_pauseT[i],
                                                 &MQQNetDevice::PauseFinish, this, qIndex);
-
 			}
 			else {
-			m_resumeEvt[qIndex] = Simulator::Schedule(Seconds(m_node->m_incast_pauseT[i]),
+			m_resumeEvt[qIndex] = Simulator::Schedule(m_incast_pauseT[i],
                                                 &MQQNetDevice::PauseFinish, this, qIndex);
-//			std::cout<<"for node\t"<<m_node->GetId()<<"\t"<<"Now gap is:"<<m_node->m_incast_pauseT[i]<<"\n";
 			}
 			m_lastQ = qIndex;
 			TransmitStart(p);
